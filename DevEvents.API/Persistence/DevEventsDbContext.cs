@@ -32,8 +32,7 @@ namespace DevEvents.API.Persistence
                     .HasColumnName("Start_Date");
 
                 e.Property(de => de.EndDate)
-                    //.HasColumnName("End_Date");
-                    .HasColumnType("End_Date");
+                    .HasColumnName("End_Date");
 
 
                 e.HasMany(de => de.Speakers)
