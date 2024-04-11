@@ -1,6 +1,7 @@
 using DevEvents.API.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using DevEvents.API.Mappers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ var connectionString = builder.Configuration.GetConnectionString("DevEventsCs");
 
 builder.Services.AddDbContext<DevEventsDbContext>(o => o.UseSqlServer(connectionString));
 
+//não necessario por o .Assembly
+builder.Services.AddAutoMapper(typeof(DevEventsProfile).Assembly);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
